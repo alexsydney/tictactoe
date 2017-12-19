@@ -6,7 +6,7 @@
      clear: both;
      height: 0;
      }
-     
+
 .clearfix { display: inline-block; }
 /* start commented backslash hack \*/
 * html .clearfix { height: 1%; }
@@ -41,10 +41,10 @@ body {
 .grid[data-column="2"] {border-right: 0;}
 
 .grid.marked-x {
-  background: url('img/x.png') no-repeat center center;
+  background: url('../img/x.png') no-repeat center center;
 }
 .grid.marked-o {
-  background: url('img/o.png') no-repeat center center;
+  background: url('../img/o.png') no-repeat center center;
 }
 
 .Info {
@@ -69,6 +69,7 @@ body {
 }
 
 .overlay, .start-overlay {
+  display: none;
   position: fixed;
   top: 0; left: 0; bottom: 0; right: 0;
   background: rgba(255,255,255,0.7);
