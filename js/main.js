@@ -1,29 +1,19 @@
 console.log(`Test if the link correct`);
 
-// const gameObject = {
-//   hasWonRow: false,
-//   hasWonDiagonal1: false,
-//   hasWonDiagonal1: false,
-//   hasWonDiagonal2: false,
-//   winnerFound: false
-// }
 
-// Set Global Variables
-// let hasWonRow       = false;
-// let hasWonColumn    = false;
-let hasWonDiagonal1 = false;
-let hasWonDiagonal2 = false;
 let winnerFound     = false;
 const boardDimesion   = 3;
 
 let currentPlayer   = 1;  // player 1 = O, player 2 = X
 let currentMoves    = 1;
+//count for the game to play
+let gameCount = 0;
 let gameDraw  = 0;
 let totalGame = 0;
 let play1Win = 0;
 let play2Win = 0;
 
-let movesBeforeWin  = (2 * boardDimesion) - 1;
+const movesBeforeWin  = (2 * boardDimesion) - 1;
 let totalMoves      = boardDimesion*boardDimesion;
 
 const playerTwo = {
@@ -37,11 +27,25 @@ const playerOne = {
 
 // Set Array globally and randomize values
 
-const items = [
+let items = [
   [   0,    0,    0   ],
   [   0,    0,    0   ],
   [   0,    0,    0   ]
 ];
+
+const gameReset = function () {
+  
+  currentMoves = 1;
+  items = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+  ];
+  $('.grid').attr('class', 'grid');  // remove symbols from game boardDimesion
+
+  $('.grid').removeAttr('data-select');
+
+};
 
 //check with the row
 let winCondRow = function(row) {
@@ -69,7 +73,7 @@ let winCondColumn = function(column){
 
 // check for diagonal from left to right direction
 let winCondDiagonalLeftRight = function(){
-  hasWonDiagonal1 = true; // reset this to be true
+  let hasWonDiagonal1 = true; // reset this to be true
   // let hasWonDiagonal1 = true; // reset this to be true
   for (let k = 0; k < boardDimesion; k++) {
     console.log({k, itemsKK: items[k][k]});
@@ -78,12 +82,12 @@ let winCondDiagonalLeftRight = function(){
       hasWonDiagonal1 = false; // reset back to be false
     }
   }
-  // return hasWonDiagonal1;
+  return hasWonDiagonal1;
 };
 
 // check for diagonal from right to left direction
 let winCondDiagonalRightLeft = function(){
-  hasWonDiagonal2 = true; // reset this to be true
+   let hasWonDiagonal2 = true; // reset this to be true
   let squareSize = boardDimesion - 1;
   // let squareSize = boardDimesion - 1;
   for (let l = 0; l < boardDimesion; l++) {
@@ -93,6 +97,7 @@ let winCondDiagonalRightLeft = function(){
       hasWonDiagonal2 = false;  // reset back to be false
     }
   }
+  return hasWonDiagonal2;
 };
 
 
@@ -103,43 +108,22 @@ let gameLogic = function(row, col){
   // console.log(`game Count `, gameCount);
 
   console.log('gameLogic()', row, col);
-
-
-
-  // for (let i = 0; i < items[0].length; i++) {
-  //   // check a row false/blank
-  //   if(winCondRow(i) == false){
-  //       // if(hasWonRow == false){
-  //     winCondRow(i); // called winCondRow and pass row value
-  //   } // end for
-
-    // for ( i = 0; i < items[0].length; i++) {
-    //   // check for column on same row
-    //   if(hasWonColumn == false) {
-    //     winCondColumn(i); // called winCondColumn and pass column value
-    //   } // end if
-    // } // end for column
-
     // call this function for diagonal from left to right
     winCondDiagonalLeftRight();
     // call this function for diagonal from right to left
     winCondDiagonalRightLeft();
 
-    // check any value of row or column or left to right or right to left is true
+    console.log('WIN CHECK:', winCondRow(row) || winCondColumn(col) || winCondDiagonalLeftRight() || winCondDiagonalRightLeft());
 
-    // console.log({hasWonRow, hasWonColumn, hasWonDiagonal1, hasWonDiagonal2});
 
-    // we only need to test the row that was just played into
-    // winCondColumn(col);
-
-    console.log(`winCondColumn(${col})`);
-
-    if(winCondRow(row) || winCondColumn(col) || hasWonDiagonal1 || hasWonDiagonal2) {
+    if(winCondRow(row) || winCondColumn(col) || winCondDiagonalLeftRight() || winCondDiagonalRightLeft() ) {
       console.log(`Someone already wonn...`);
       let x = $('.marked-x').length;
       let o = $('.marked-o').length;
       winnerFound = true;  // found a winner and set value to be true
       // check who is winner between player 1 or player 2
+      //only applause when game had winner
+      // let gameCount = 1;
       if( x >= o ){
         play2Win += 1;
 
@@ -147,21 +131,26 @@ let gameLogic = function(row, col){
         console.log(`Number game player 2 win: `, play2Win);
       } // end if
       // called this message and display a message
-      $('#applause')[0].play();
+      // $('#applause')[0].play();
       showMainMessage();
-      console.log(`what show here `);
+      play1Win += 1;
+      console.log(`player 1's winner count: `, play1Win);
     } else {
       gameDraw += 1;
       console.log(`It is draw game.`); // no one winer
       console.log(`Number game draw :`, gameDraw);
     } // end else
 
+     gameCount += 1;
 
+    // if(winnerFound = true){
+    //   $('#applause')[0].play();
+    // }
   // }
   };
-
-
-
+ // check out total games
+  totalGame = gameCount + 1;
+  console.log('totalGame:', totalGame);
 
   // display message
   let showMainMessage = function(){
@@ -173,15 +162,14 @@ let gameLogic = function(row, col){
   let switchPlayer  = function(){
     currentPlayer = (currentPlayer == 1) ? 2 : 1;
     console.log('switched to ', currentPlayer );
+    // Change Info message
+    if(currentPlayer == 1) {
+      $('.Info').text("Player 1's turn");
+    } else {
+      $('.Info').text("Player 2's turn");
+      // $('.Info').text("Player 2's turn");
+    };
   };
-
-  // Change Info message
-  if(currentPlayer == 1) {
-    $('.Info').text("Player 2's turn");
-  } else {
-    $('.Info').text("Player 1's turn");
-  }; // if Info message display
-
 
 // event handler start from here
 //clicked on grid
@@ -197,10 +185,6 @@ $('.grid').on('click', function(e){
     $('.Info').html("Player " + currentPlayer + "'s turn - <strong>You cannot click on a marked spot</strong>");
     return;
   }; // end of data-select
-
-
-
-
 
   // Set appropriate attributes/values to grid clicked
   if(currentPlayer == 1) {
@@ -249,9 +233,11 @@ $('.grid').on('click', function(e){
       // // when click on play again button and it call preventDefault method and reload method to start new game
       $('.message').on('click', '.play-again', function(e){
         e.preventDefault();
-        location.reload();
+        // location.reload();
+        gameReset();
+        $('.overlay').fadeOut();
       });
 
-      const $clap = $('.clap').ready('')
-      totalGame = totalGame + 1;
-      console.log('totalGame:', totalGame);
+      // const $clap = $('.clap').ready('')
+      // totalGame = totalGame + 1;
+      // console.log('totalGame:', totalGame);
