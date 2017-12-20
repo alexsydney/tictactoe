@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
+
 .clearfix:after {
      visibility: hidden;
      display: block;
@@ -6,7 +8,6 @@
      clear: both;
      height: 0;
      }
-
 .clearfix { display: inline-block; }
 /* start commented backslash hack \*/
 * html .clearfix { height: 1%; }
@@ -14,23 +15,27 @@
 /* close commented backslash hack */
     * {margin: 0; padding: 0;}
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500);
-
 body {
-  width: 600px;
-  margin: 50px auto 100px;
+  /* width: 150vw; */
+  /* margin: 50px auto; */
+  /* margin: 50px auto 100px */
   font-family: 'Roboto', "Myriad Pro";
   font-size: 13px;
+  background-image: url('../img/space.jpg');
+  background-repeat: no-repeat;
+  /* background-size: contain; */
 }
 
 .tic-tac-toe {
-  width: 454px;
-  margin: 70px auto;
+  width: 77vh;
+  height: 77vh;
+  margin: 50px auto;
+  display: block;
 }
 
 .grid {
-  height: 150px;
-  width: 150px;
+  height: 25vh;
+  width: 25vh;
   float: left;
   border: 1px solid #ccc;
   cursor: pointer;
@@ -40,11 +45,15 @@ body {
 .grid[data-column="0"] {border-left: 0;}
 .grid[data-column="2"] {border-right: 0;}
 
-.grid.marked-x {
-  background: url('../img/x.png') no-repeat center center;
-}
+.grid.marked-x,
 .grid.marked-o {
-  background: url('../img/o.png') no-repeat center center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.grid.captain-america {
+  background-image: url('../img/captain_america.png');
 }
 
 .Info {
@@ -62,22 +71,25 @@ body {
 }
 
 .fixedToTop {
-  position: fixed;
+  /* position: fixed; */
   top: 0; left: 0;
-  width: 100%;
-  display: none;
+  width: 50vw;
+  /* display: none; */
 }
 
 .overlay, .start-overlay {
   display: none;
   position: fixed;
   top: 0; left: 0; bottom: 0; right: 0;
-  background: rgba(255,255,255,0.7);
+  /* background: rgba(255,255,255,0.7); */
 }
 
 .start-overlay{
   display: block;
-  background: #f1f1f1;
+  /* background: #f1f1f1; */
+  background-image: url('../img/intro_image.jpg') !important;
+  background-position: center;
+  background-size: cover;
 }
 
 .message, .start-message {
@@ -114,15 +126,17 @@ body {
   text-transform: uppercase;
 }
 .theMessage {
-  font-size: 16px;
-  opacity: 0.85;
+  font-size: 25px;
+  font-weight: 500;
   display: block;
 }
 .start-message {
-  background: #fff;
+  background: transparent;
+  border: 5px solid white;
   box-shadow: 0 1px 2px rgba(0,0,0,0.15);
   border-radius: 3px;
-  color: #666;
+  color: white;
+  font-weight: 500;
   opacity: 1;
   padding: 30px 0;
   transition: all 0.25s ease;
@@ -196,4 +210,70 @@ body {
 .footer a:hover {
   color: #000;
   border-bottom: 1px solid #333;
+}
+
+
+
+/* Player avatar section */
+.avatar-container {
+  width: 22vw;
+  height: 75vh;
+  position: fixed;
+  top: 30vh;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.player-one-avatar {
+  left: 0;
+  width: 260px;
+  position: absolute;
+  z-index: -100;
+  background-image: url('../img/captain_america.png');
+}
+.player-two-avatar {
+  right: 0;
+  background-image: url('../img/Iron_man_transparent.png');
+}
+
+
+.iron-man-weapon {
+  background-image: url('../img/iron_man_weapon1.png');
+}
+
+.captain-america-weapon {
+  background-image: url('../img/captain_america_shield.png');
+}
+
+
+/* Location  */
+.location-picker {
+  width: 50vw;
+  height: 300px;
+  position: fixed;
+  top: 25vh;
+  left: 25vw;
+  background-color: dodgerblue;
+  transform: translateY(300%);
+  transition: transform;
+  transition-duration: 1000ms;
+}
+
+.location-picker.is-active {
+  transform: translateY(0%);
+}
+
+/*
+@media (max-width: 640px) {
+  .avatar-container {
+    display: none;
+  }
+} */
+
+/*  sound audio  */
+.claps {
+  max-width: 20%;
+  max-height: 20%;
+
 }
