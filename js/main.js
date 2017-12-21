@@ -154,7 +154,7 @@ const gameOverMessage = function (winType) {
 $('.grid').on('click', function(e){
   let $this = $(this);
   // Prevent player click on taking mark grid have been selected
-  if($this.attr("data-select")) {
+  if($this.hasClass('marked-o') || $this.hasClass('marked-x')) {
     $('.Info').html("Player " + currentPlayer + "'s turn - <strong>You cannot click on a marked spot</strong>");
     return;
   }; // end of data-select
