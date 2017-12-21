@@ -7,10 +7,22 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <h1>Tic Tac Toe</h1>
-    <div class="center">
+    <!-- <h1>Tic Tac Toe</h1> -->
       <div class="Info fixedToTop">Player 1's turn</div>
+
+    <div id="player1Score">
+      Wins: <span class="wins">0</span><br>
+      Losses: <span class="losses">0</span><br>
+      Draws: <span class="draws">0</span><br>
     </div>
+
+    <div id="player2Score">
+      Wins: <span class="wins">0</span><br>
+      Losses: <span class="losses">0</span><br>
+      Draws: <span class="draws">0</span><br>
+    </div>
+
+
     <div class="tic-tac-toe clearfix">
       <div class="grid" data-row="0" data-column="0"></div>
       <div class="grid" data-row="0" data-column="1"></div>
@@ -50,18 +62,19 @@
     </div> -->
 
    <div class="sound">
-     <audio id="sound1" src="img/cross.wav" preload="auto"></audio>
-     <audio id="sound2" src="img/nought.wav" preload="auto"></audio>
-     <audio id="sound3" src="img/endgame.wav" preload="auto"></audio>
-     <audio id="sound4" src="img/tada.wav" preload="auto"></audio>
+     <audio id="cross" src="audio/cross.wav" preload="auto"></audio>
+     <audio id="nought" src="audio/nought.wav" preload="auto"></audio>
+     <audio id="endgame" src="audio/endgame.wav" preload="auto"></audio>
+     <audio id="tada" src="audio/tada.wav" preload="auto"></audio>
      <audio id="applause" src="audio/applause3.mp3" preload="auto"></audio>
    </div>
     <!-- display win/lose/draw game -->
     <div class="overlay">
       <div class="message">
-        <img src="img/clap.gif" alt="claps pic" class="claps">
+        <!-- <img src="img/clap.gif" alt="claps pic" class="claps"> -->
         <h3>Game Over</h3>
-        <span class="theMessage">Well done Player 1 - You have won the game </span>
+        <span class="theMessage">Well done player 1 - You have won the game </span>
+        <img src="img/clap.gif" alt="claps pic" class="claps">
         <a href="#" class="play-again">Play again&nbsp; &#8250;</a>
       </div>
     </div>
@@ -71,10 +84,29 @@
      <div class="start-message">
        <span class="theMessage">Welcome to Tic-Tac-Toe game</span>
        <a href="#" class="lets-play">Ready to play game!</a>
+       <!-- <a href="#" class="select-players">Select players!</a> -->
      </div>
 
+    <div class="winGame-overlay">
+      <div class="winGame">
+        <span class="winGameMessage">Well done - you won a game</span>
+      </div>
+    </div>
+
+    <div class="looseGame-overlay">
+      <div class="looseGame">
+        <span class="looseGameMessage">Oh sorry you did not win a game. Try again.</span>
+      </div>
+    </div>
+
+    <div class="endGame-overlay">
+      <div class="endGame">
+        <span class="endGameMessage">Exit game.</span>
+      </div>
+    </div>
+
      <div class="footer">
-       Tic Tac Toe
+       &copy; 2017 - Alex Pham - Tic Tac Toe
      </div>
    </div>
   <script src="js/jquery-v2.js" type="text/javascript"></script>
