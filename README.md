@@ -73,3 +73,10 @@ tickClick()
     set message location
     set message as visible
     Hide 'New Game' button
+
+
+(Link to live Tic tac toe game)[https://alexsydney.github.io/tictactoe/]
+
+In this project. I choose adventure theme, Iron man, captain of America for players and image background.
+
+Wishlist: I really like to put more themes and players and allow users can select any theme and player from the list before they can start to play a game.
