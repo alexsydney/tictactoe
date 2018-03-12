@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name=viewport content="width=device-width, initial-scale=1">
     <title>Tic Tac Toe game</title>
+    <link href="https://fonts.google.com/?selection.family=Mina|Roboto" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
@@ -46,21 +47,6 @@
        <div class="grid_location" data-row="0" data-column="2"></div>
     </div>
 
-    <!-- <div class="player-list">
-      <div class="grid_player_list" data-row="0" data-column="0">
-        <img src="img/supergirl.jpg" alt="">
-      </div>
-      <div class="grid_player_list" data-row="0" data-column="1">
-        <img src="img/superman1.jpg" alt="">
-      </div>
-      <div class="grid_player_list" data-row="0" data-column="2">
-        <img src="img/spiderman.jpg" alt="">
-      </div>
-      <div class="grid_player_list" data-row="0" data-column="2">
-        <img src="img/spider_women.png" alt="">
-      </div>
-    </div> -->
-
    <div class="sound">
      <audio id="cross" src="audio/cross.wav" preload="auto"></audio>
      <audio id="nought" src="audio/nought.wav" preload="auto"></audio>
@@ -84,7 +70,7 @@
      <div class="start-message">
        <span class="theMessage">Welcome to Tic-Tac-Toe game</span>
        <a href="#" class="lets-play">Ready to play game!</a>
-       <!-- <a href="#" class="select-players">Select players!</a> -->
+
      </div>
 
     <div class="winGame-overlay">
@@ -99,14 +85,14 @@
       </div>
     </div>
 
-    <div class="endGame-overlay">
-      <div class="endGame">
-        <span class="endGameMessage">Exit game.</span>
-      </div>
-    </div>
-
      <div class="footer">
        &copy; 2017 - Alex Pham - Tic Tac Toe
+     </div>
+   </div>
+
+   <div class="endGame-overlay hidden">
+     <div class="endGame">
+       <span class="endGameMessage">Exit game.</span>
      </div>
    </div>
   <script src="js/jquery-v2.js" type="text/javascript"></script>

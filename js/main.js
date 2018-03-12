@@ -1,4 +1,4 @@
-const boardDimesion   = 3;
+let boardDimesion   = 3;
 let currentPlayer   = 1;  // player 1 = O, player 2 = X
 let currentMoves    = 1;
 
@@ -119,7 +119,9 @@ let gameLogic = function(row, col){
 // check out total games
 // display message
 let showMainMessage = function(){
-  $('.Info').addClass('hide'); $('.overlay').fadeIn('1000'); $('.message').addClass('show');
+  // $('.Info').addClass('hide');
+  $('.overlay').fadeIn('1000');
+  $('.message').addClass('show');
 };
 
 // each player has their turn to play on.
