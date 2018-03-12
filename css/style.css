@@ -58,14 +58,14 @@ body {
 }
 
 .Info {
-  background-color: #5bc0de;
-  padding: 19px 0;
-  color: #8c7040;
+  padding: 25px 0;
+  color: #fff;
   text-align: center;
   letter-spacing: 1px;
   transition: all 0.4s ease;
   -webkit-transition: all 0.4s ease;
-  border-radius: 20px;
+  border-rad
+  ius: 20px;
 }
 .Info.hide {
   transform: translateY(-100%);
@@ -75,7 +75,7 @@ body {
 .fixedToTop {
   /* position: fixed; */
   width: 30vh;
-  margin: 10px auto;
+  margin: 20px auto;
   display: block;
 
   /* display: none; */
@@ -117,7 +117,7 @@ body {
   -webkit-transition: transform 0.3s ease, opacity 0.2s ease 0.1s;
   padding: 40px 20px 30px;
 }
-
+-
 .message.show {
   border-radius: 25px;
   opacity: 1;
@@ -349,4 +349,22 @@ body {
   border: 2px solid #385049;
   border-radius: 8px;
   color: white;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: white;
+}
+
+p {
+  padding: 0px;
+}
+
+.endGame-overlay {
+  background-color: red;
+  position: fixed;
+  top: 25vh;
+  left: 30vw;
+  width: 40vw;
+  height: 200px;
 }

@@ -7,19 +7,19 @@
 <a href="https://alexsydney.github.io/tictactoe/" rel="nofollow">https://alexsydney.github.io/tictactoe/</a>
 
 <h2>Build With</h2>
-<p>HTML5, CSS3, JavaScript and jQuery.</p>
+<p> HTML5, CSS3, JavaScript and jQuery.</p>
 
 <h2>Dependencies(Included)</h2>
-
 <ol>
-<li>jQuery</li>
-<li>Google fonts</li>
+  <li>jQuery</li>
+  <li>Google fonts</li>
 </ol>
 <ul>
-<li>Karma</li>
-<li>Shadows Into Light</li>
+  <li>Roboto</li>
+  <li>Mina</li>
 </ul>
-<p>In this project. I choose adventure theme, Iron man, captain of America for players and image background.
+<p>In this project. I choose adventure theme as Iron man and Captain of America for players and image for background.
+
 </p>
 <h2>Creator</h2>
 
